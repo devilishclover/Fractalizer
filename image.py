@@ -1,0 +1,61 @@
+from tkinter import Tk, Canvas, PhotoImage, mainloop
+import sys
+from time import time
+
+SIZE = 512
+
+def makeImage(config, fractal, palette):  
+    """Paint a Fractal image into the TKinter PhotoImage canvas.
+    """
+    b4 = time()
+    name = config['type']
+
+    if "pixels" in config:
+        SIZE = config['pixels']
+
+    print("Rendering %s fractal" % name, file=sys.stderr)
+    canvasSize = SIZE
+    window = Tk()
+    tkPhotoImage = PhotoImage(width=SIZE, height=SIZE)
+    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(window, width=SIZE, height=SIZE, bg='#000000')
+    tk_Interface_PhotoImage_canvas_pixel_object.create_image((SIZE/2, SIZE/2), image=tkPhotoImage, state="normal")
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()
+
+    # Figure out how the boundaries of the PhotoImage relate to coordinates on
+    # the imaginary plane.f
+    minx = config['centerx'] - (config['axislength'] / 2.0)
+    maxx = config['centerx'] + (config['axislength'] / 2.0)
+    miny = config['centery'] - (config['axislength'] / 2.0)
+    maxy = config['centery'] + (config['axislength'] / 2.0)
+
+    # Calculate the size of each pixel
+    pixelsize = abs(maxx - minx) / canvasSize
+
+    # Loop backwards through rows to draw the fractal
+    for row in range(canvasSize, 0, -1):
+        pixelColors = []
+        for col in range(canvasSize):
+            # Calculate the coordinates in the complex plane
+            x = minx + col * pixelsize
+            y = miny + row * pixelsize
+
+            pixelColors.append(palette.get_color(fractal.count(complex(x, y))))
+
+        # Update the PhotoImage with the current row of pixels
+        pixelRow = '{' + ' '.join(pixelColors) + '}'
+        tkPhotoImage.put(pixelRow, to=(0, canvasSize - row))
+        window.update()  # Display the updated row of pixels
+        window.update_idletasks()
+
+        # Print a status bar to the console
+        completionPercentage = (canvasSize - row) / canvasSize
+        print(f"[{completionPercentage:>4.0%}"
+              + f'{" "}'
+              + f"{'=' * int(34 * completionPercentage):<33}]",
+              end="\r", file=sys.stderr)
+
+    tkPhotoImage.write(name + ".png")
+        
+    print(f"\nDone in {time() - b4:.3f} seconds!", file=sys.stderr)
+    print("Close the image window to exit the program", file=sys.stderr)
+    mainloop()
