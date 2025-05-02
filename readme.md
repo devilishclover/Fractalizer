@@ -29,8 +29,6 @@ To run the program, run main.py with the arguments you want to use.
 
 The configuration files are found in the /data folder. Files starting with m- are Mandelbrot files and files starting with p- are Phoenix files, files starting with bs- are burning ship files, and files starting with j- are julia files.
 
-Currently s- (spider) files, and n- (newton) files are not supported.
-
 ## Available Palettes
 
 The following color palettes can be specified as the second argument:
