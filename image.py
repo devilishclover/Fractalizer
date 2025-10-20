@@ -4,8 +4,9 @@ from time import time
 
 SIZE = 512
 
-def makeImage(config, fractal, palette):  
+def makeImage(config, fractal, palette, headless=False):  
     """Paint a Fractal image into the TKinter PhotoImage canvas.
+    If headless=True, generate image without GUI and save directly to file.
     """
     b4 = time()
     name = config['type']
@@ -15,11 +16,19 @@ def makeImage(config, fractal, palette):
 
     print("Rendering %s fractal" % name, file=sys.stderr)
     canvasSize = SIZE
-    window = Tk()
-    tkPhotoImage = PhotoImage(width=SIZE, height=SIZE)
-    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(window, width=SIZE, height=SIZE, bg='#000000')
-    tk_Interface_PhotoImage_canvas_pixel_object.create_image((SIZE/2, SIZE/2), image=tkPhotoImage, state="normal")
-    tk_Interface_PhotoImage_canvas_pixel_object.pack()
+    
+    if headless:
+        # In headless mode, create a hidden window
+        window = Tk()
+        window.withdraw()  # Hide the window
+        tkPhotoImage = PhotoImage(width=SIZE, height=SIZE)
+    else:
+        # Normal GUI mode
+        window = Tk()
+        tkPhotoImage = PhotoImage(width=SIZE, height=SIZE)
+        tk_Interface_PhotoImage_canvas_pixel_object = Canvas(window, width=SIZE, height=SIZE, bg='#000000')
+        tk_Interface_PhotoImage_canvas_pixel_object.create_image((SIZE/2, SIZE/2), image=tkPhotoImage, state="normal")
+        tk_Interface_PhotoImage_canvas_pixel_object.pack()
 
     # Figure out how the boundaries of the PhotoImage relate to coordinates on
     # the imaginary plane.f
@@ -44,8 +53,10 @@ def makeImage(config, fractal, palette):
         # Update the PhotoImage with the current row of pixels
         pixelRow = '{' + ' '.join(pixelColors) + '}'
         tkPhotoImage.put(pixelRow, to=(0, canvasSize - row))
-        window.update()  # Display the updated row of pixels
-        window.update_idletasks()
+        
+        if not headless:
+            window.update()  # Display the updated row of pixels (only in GUI mode)
+            window.update_idletasks()
 
         # Print a status bar to the console
         completionPercentage = (canvasSize - row) / canvasSize
@@ -57,5 +68,10 @@ def makeImage(config, fractal, palette):
     tkPhotoImage.write(f"./output/{name}.png")
         
     print(f"\nDone in {time() - b4:.3f} seconds!", file=sys.stderr)
-    print("Close the image window to exit the program", file=sys.stderr)
-    mainloop()
+    
+    if headless:
+        print(f"Image saved to ./output/{name}.png", file=sys.stderr)
+        window.destroy()  # Clean up the hidden window
+    else:
+        print("Close the image window to exit the program", file=sys.stderr)
+        mainloop()

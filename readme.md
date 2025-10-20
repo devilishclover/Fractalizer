@@ -68,6 +68,20 @@ To run the program, run main.py with the arguments you want to use.
     python main.py data/m-basic.frac fire
     ```
 
+4. **Headless mode (no GUI window)** - Generate fractals without showing the GUI window:
+    ```bash
+    # Using Poetry (recommended)
+    poetry run python main.py data/m-basic.frac --no-gui
+    
+    # Or directly with Python
+    python main.py data/m-basic.frac --no-gui
+    
+    # You can also use --headless instead of --no-gui
+    poetry run python main.py data/m-basic.frac --headless
+    ```
+    
+    In headless mode, the fractal is generated and saved to the `/output` folder without displaying a GUI window. This is useful for batch processing or running on systems without a display.
+
 The configuration files are found in the /data folder. Files starting with m- are Mandelbrot files and files starting with p- are Phoenix files, files starting with bs- are burning ship files, and files starting with j- are julia files.
 
 ## Available Palettes
@@ -89,12 +103,21 @@ When the program runs successfully:
 3. the fractal finishes and when the window is closed the file is saved
 
 ### Example Output:
+
+**GUI Mode:**
 ```
-Rendering p-shrimp-cocktail fractal
+Rendering phoenix fractal
 [100% =================================]
-Done in 2.489 seconds!
-Saved image to file p-shrimp-cocktail.png
+Done in 2.430 seconds!
 Close the image window to exit the program
+```
+
+**Headless Mode:**
+```
+Rendering mandelbrot fractal
+[100% =================================]
+Done in 1.911 seconds!
+Image saved to ./output/mandelbrot.png
 ```
 
 ## Common Errors

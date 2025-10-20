@@ -19,7 +19,7 @@ def parse(fractalFile):
                 data[line_data[0].lower()] = line_data[1].lower()
             else:
             # too many colons
-                raise RuntimeError(f"error: too many collons")
+                raise RuntimeError(f"error: too many colons")
             
     # Cast items to the correct type
     if 'centerx' in data:
