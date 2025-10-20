@@ -6,19 +6,10 @@ A Python-based fractal generator supporting multiple fractal sets with animation
 
 <div align="center">
 
-### Static Fractals
-
-| Mandelbrot Set | Julia Set | Phoenix Set |
-|:---:|:---:|:---:|
-| <img src="exampleoutput/m-wholly-squid.png" width="200" height="200" alt="Mandelbrot"> | <img src="exampleoutput/j-basic.png" width="200" height="200" alt="Julia"> | <img src="exampleoutput/p-oriental-dragons.png" width="200" height="200" alt="Phoenix"> |
-| `m-wholly-squid.frac` with `stripes` palette | `j-basic.frac` with `fire` palette | `p-oriental-dragons.frac` with `bluegreen` palette |
-
-### Animation Example
-
-| Fractal Animation |
-|:---:|
-| <img src="exampleoutput/sickanimation.gif" width="400" height="400" alt="Fractal Animation"> |
-| Dynamic fractal animation showing parameter interpolation |
+| Mandelbrot Set | Julia Set | Phoenix Set | Animation |
+|:---:|:---:|:---:|:---:|
+| <img src="exampleoutput/m-wholly-squid.png" width="200" height="200" alt="Mandelbrot"> | <img src="exampleoutput/j-basic.png" width="200" height="200" alt="Julia"> | <img src="exampleoutput/p-oriental-dragons.png" width="200" height="200" alt="Phoenix"> | <img src="exampleoutput/sickanimation.gif" width="200" height="200" alt="Animation"> |
+| `m-wholly-squid.frac` with `stripes` palette | `j-basic.frac` with `fire` palette | `p-oriental-dragons.frac` with `bluegreen` palette | Dynamic parameter interpolation |
 
 </div>
 
