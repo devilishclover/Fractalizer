@@ -1,18 +1,10 @@
 # X Marks The Spot!
 
-# You'll need to implement this formula yourself so your program can produce this image
-type:   Julia
-
+type: julia
+centerx: -0.251833357526491
+centery: 0.202938441870375
+axislength: 0.0120869329407663
 pixels: 640
-
 iterations: 256
-
-cReal: -1.0125
-
-cImag: 0.275
-
-centerX: -0.251833357526491
-
-centerY: 0.202938441870375
-
-axisLength: 0.0120869329407663
+creal: -1.0125
+cimag: 0.275

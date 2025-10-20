@@ -1,13 +1,12 @@
 # Phoenix Fractal - snowflake
 
 type: phoenix
+centerx: -0.7466
+centery: 0.1069
+axislength: 0.001
+pixels: 512
+iterations: 256
 preal: -0.3
 pimag: 0.1
 creal: -0.8
 cimag: 0.78
-centerY: 0.1069
-centerX: -0.7466
-axisLength: 4
-pixels: 512
-iterations: 256
-axisLength: 0.001

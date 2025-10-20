@@ -1,10 +1,8 @@
 # spiral0 from the original starter code
-axislength: 0.00497817993164062
-iterations: 512
 
-type:   mandelbrot
-pixels: 640
-
-
+type: mandelbrot
 centerx: -0.761335372924805
 centery: 0.0835704803466797
+axislength: 0.00497817993164062
+pixels: 640
+iterations: 512

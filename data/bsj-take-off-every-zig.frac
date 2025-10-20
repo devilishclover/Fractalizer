@@ -1,11 +1,12 @@
 # A close up of one of the "eyes" in a Burning Ship Julia fractal.
-# I see lots of small space ships departing from the mother ship.
-# You'll need to implement this formula yourself to make your program produce this image
-type:       burningshipjulia
-creal:      -.598
-cimag:      .9225
-centerx:    0.347
-centery:    0.945
+
+type: burningshipjulia
+centerx: 0.347
+centery: 0.945
 axislength: 0.1
-pixels:     768
+pixels: 768
 iterations: 148
+creal: -0.598
+cimag: 0.9225
+
+# I see lots of small space ships departing from the mother ship.

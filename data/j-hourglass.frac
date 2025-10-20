@@ -1,13 +1,12 @@
 # I think this looks like an hourglass
-# You'll need to implement this formula yourself so your program can produce this image
-Type: Julia
-creal: -1
-Cimag: 0
+
+type: julia
+centerx: 0.618
+centery: 0.0
+axislength: 0.017148277367054
 pixels: 1024
+iterations: 78
+creal: -1
+cimag: 0
 
 # I guess "X marks the spot" works, too.  Naming stuff is hard, okay?
-
-Centerx: 0.618
-centerY: 0.0
-axisLength: 0.017148277367054
-iterations: 78

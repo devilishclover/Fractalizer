@@ -1,7 +1,8 @@
 # I can sea the horse.  Can you?
-type:         mandelbrot
-pixels:       640
-centerx:   -0.748
-centery:   -0.102
+
+type: mandelbrot
+centerx: -0.748
+centery: -0.102
 axislength: 0.008
+pixels: 640
 iterations: 384

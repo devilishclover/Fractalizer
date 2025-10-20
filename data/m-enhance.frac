@@ -1,7 +1,8 @@
 # Enhance.  Enhance.  ENHANCE!!
-pixels:     512
-centerx:    -1.48
-centery:    0.0
-axislength: 0.01
-iterations: 300
+
 type: mandelbrot
+centerx: -1.48
+centery: 0.0
+axislength: 0.01
+pixels: 512
+iterations: 300

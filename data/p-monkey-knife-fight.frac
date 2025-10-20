@@ -1,17 +1,14 @@
 # Phoenix Fractal: Monkey! Knife! Fight!
 
-axisLength: 0.136626506024096
+type: phoenix
+centerx: 0.232234726688103
+centery: -0.945542168674699
+axislength: 0.136626506024096
+pixels: 512
 iterations: 101
-
-type: Phoenix
 preal: -0.5
 pimag: 0.0
-
-# c value taken from http://usefuljs.net/fractals/docs/julia_mandelbrot.html, "Connected and Unconnected Sets"
 creal: 0.5667
 cimag: 0.0
-pixels: 512
 
-centerY: -0.945542168674699
-centerX: 0.232234726688103
-
+# c value taken from http://usefuljs.net/fractals/docs/julia_mandelbrot.html, "Connected and Unconnected Sets"

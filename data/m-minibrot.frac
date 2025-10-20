@@ -1,7 +1,8 @@
 # uWu... it's just so cute and TINY!
-Type:       Mandelbrot
-pixels:     1024
-centerx:   -1.40812110900879
-centery:   -0.136344909667969
+
+type: mandelbrot
+centerx: -1.40812110900879
+centery: -0.136344909667969
 axislength: 0.0028839111328125
+pixels: 1024
 iterations: 350
