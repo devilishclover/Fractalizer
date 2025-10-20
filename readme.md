@@ -1,6 +1,6 @@
 # Fractalizer
 
-A Python-based fractal generator supporting Mandelbrot, Julia, Phoenix, and Burning Ship fractals with animation capabilities.
+A Python-based fractal generator supporting multiple fractal sets with animation capabilities.
 
 ## Example Output
 
