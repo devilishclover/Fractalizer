@@ -1,6 +1,6 @@
 # Fractalizer
 
-A Python-based fractal generator supporting Mandelbrot, Julia, Phoenix, and Burning Ship fractals with animation capabilities.
+A Python-based fractal generator supporting multiple fractal sets with animation capabilities.
 
 ## Example Output
 
@@ -8,7 +8,7 @@ A Python-based fractal generator supporting Mandelbrot, Julia, Phoenix, and Burn
 
 ### Static Fractals
 
-| Mandelbrot Set | Julia Set | Phoenix Fractal |
+| Mandelbrot Set | Julia Set | Phoenix Set |
 |:---:|:---:|:---:|
 | <img src="exampleoutput/m-wholly-squid.png" width="200" height="200" alt="Mandelbrot"> | <img src="exampleoutput/j-basic.png" width="200" height="200" alt="Julia"> | <img src="exampleoutput/p-oriental-dragons.png" width="200" height="200" alt="Phoenix"> |
 | `m-wholly-squid.frac` with `stripes` palette | `j-basic.frac` with `fire` palette | `p-oriental-dragons.frac` with `bluegreen` palette |
