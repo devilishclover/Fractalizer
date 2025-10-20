@@ -2,6 +2,17 @@
 
 A Python-based fractal generator supporting Mandelbrot, Julia, Phoenix, and Burning Ship fractals with animation capabilities.
 
+## Example Output
+
+<div align="center">
+
+| Mandelbrot Set | Julia Set | Phoenix Fractal |
+|:---:|:---:|:---:|
+| <img src="exampleoutput/m-wholly-squid.png" width="200" height="200" alt="Mandelbrot"> | <img src="exampleoutput/j-basic.png" width="200" height="200" alt="Julia"> | <img src="exampleoutput/p-oriental-dragons.png" width="200" height="200" alt="Phoenix"> |
+| `m-wholly-squid.frac` with `stripes` palette | `j-basic.frac` with `fire` palette | `p-oriental-dragons.frac` with `bluegreen` palette |
+
+</div>
+
 ## Quick Start
 
 Generate a basic fractal:

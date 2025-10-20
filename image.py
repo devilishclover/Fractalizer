@@ -10,7 +10,8 @@ def makeImage(config, fractal, palette, headless=False, save_path=None):
     If save_path is provided, save to that path instead of default location.
     """
     b4 = time()
-    name = config['type']
+    # Use the fractal configuration name if available, otherwise fall back to type
+    name = config.get('name', config['type'])
 
     if "pixels" in config:
         SIZE = config['pixels']
