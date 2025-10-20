@@ -2,29 +2,70 @@
 
 ## Running the Program
 
-### Requrements:
+### Requirements:
 
-* The following modules must be installed:
-    ```
-    pip install colour
-    pip install pygame
-    ```
+#### System Requirements:
+* Python 3.8.1 or higher
+* tkinter GUI support (usually included with Python, but may need to be installed separately on some Linux distributions)
+
+**Installing tkinter on Linux (if needed):**
+```bash
+# Ubuntu/Debian
+sudo apt-get install python3-tk
+
+# Fedora/RHEL/CentOS
+sudo dnf install tkinter
+# or
+sudo yum install tkinter
+
+# Arch Linux
+sudo pacman -S tk
+```
+
+#### Python Dependencies:
+The easiest way to install all required Python modules is using Poetry:
+
+```bash
+# Install dependencies
+poetry install
+
+# Run the program using Poetry
+poetry run python main.py
+```
+
+**Alternative manual installation:**
+```bash
+pip install colour
+pip install pygame
+```
 
 To run the program, run main.py with the arguments you want to use.
 
 1. **No arguments** - default Phoenix fractal configuration:
-    ```
-    $ python src/main.py
+    ```bash
+    # Using Poetry (recommended)
+    poetry run python main.py
+    
+    # Or directly with Python
+    python main.py
     ```
 
 2. **With fractal configuration file** - Specify a fractal configuration file from the /data folder:
-    ```
-    $ python src/main.py data/p-monkey-knife-fight.frac
+    ```bash
+    # Using Poetry (recommended)  
+    poetry run python main.py data/p-monkey-knife-fight.frac
+    
+    # Or directly with Python
+    python main.py data/p-monkey-knife-fight.frac
     ```
 
 3. **With fractal configuration and palette** - Specify both a configuration file and a color palette:
-    ```
-    $ python src/main.py data/mandelbrot.frac fire
+    ```bash
+    # Using Poetry (recommended)
+    poetry run python main.py data/m-basic.frac fire
+    
+    # Or directly with Python
+    python main.py data/m-basic.frac fire
     ```
 
 The configuration files are found in the /data folder. Files starting with m- are Mandelbrot files and files starting with p- are Phoenix files, files starting with bs- are burning ship files, and files starting with j- are julia files.
