@@ -2,6 +2,10 @@
 output/*
 !output/.gitkeep
 
+# Ignore temporary animation files
+temp/
+*.tmp
+
 # Python cache files
 __pycache__/
 *.pyc

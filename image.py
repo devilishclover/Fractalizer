@@ -4,9 +4,10 @@ from time import time
 
 SIZE = 512
 
-def makeImage(config, fractal, palette, headless=False):  
+def makeImage(config, fractal, palette, headless=False, save_path=None):  
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     If headless=True, generate image without GUI and save directly to file.
+    If save_path is provided, save to that path instead of default location.
     """
     b4 = time()
     name = config['type']
@@ -65,12 +66,18 @@ def makeImage(config, fractal, palette, headless=False):
               + f"{'=' * int(34 * completionPercentage):<33}]",
               end="\r", file=sys.stderr)
 
-    tkPhotoImage.write(f"./output/{name}.png")
+    # Determine save path
+    if save_path:
+        output_path = save_path
+    else:
+        output_path = f"./output/{name}.png"
+    
+    tkPhotoImage.write(output_path)
         
     print(f"\nDone in {time() - b4:.3f} seconds!", file=sys.stderr)
     
     if headless:
-        print(f"Image saved to ./output/{name}.png", file=sys.stderr)
+        print(f"Image saved to {output_path}", file=sys.stderr)
         window.destroy()  # Clean up the hidden window
     else:
         print("Close the image window to exit the program", file=sys.stderr)

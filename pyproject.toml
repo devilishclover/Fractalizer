@@ -11,6 +11,15 @@ python = "^3.8.1"
 colour = "^0.1.5"
 pygame = "^2.5.0"
 
+[tool.poetry.group.animation]
+optional = true
+
+[tool.poetry.group.animation.dependencies]
+opencv-python = "^4.8.0"
+numpy = "^1.24.0"
+pillow = "^10.0.0"
+imageio = "^2.31.0"
+
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0.0"
 black = "^23.0.0"
