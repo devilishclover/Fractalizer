@@ -9,7 +9,7 @@ A Python-based fractal generator supporting multiple fractal sets with animation
 | Mandelbrot Set | Julia Set | Phoenix Set | Animation |
 |:---:|:---:|:---:|:---:|
 | <img src="exampleoutput/m-wholly-squid.png" width="200" height="200" alt="Mandelbrot"> | <img src="exampleoutput/j-basic.png" width="200" height="200" alt="Julia"> | <img src="exampleoutput/p-oriental-dragons.png" width="200" height="200" alt="Phoenix"> | <img src="exampleoutput/sickanimation.gif" width="200" height="200" alt="Animation"> |
-| `m-wholly-squid.frac` with `stripes` palette | `j-basic.frac` with `fire` palette | `p-oriental-dragons.frac` with `bluegreen` palette | Dynamic parameter interpolation |
+| `m-wholly-squid.frac` with `stripes` palette | `j-basic.frac` with `fire` palette | `p-oriental-dragons.frac` with `bluegreen` palette | Dynamic parameter interpolation 🤓|
 
 </div>
 
