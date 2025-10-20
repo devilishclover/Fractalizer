@@ -1,12 +1,26 @@
 # Fractalizer
 
-## Running the Program
+A Python-based fractal generator supporting Mandelbrot, Julia, Phoenix, and Burning Ship fractals with animation capabilities.
 
-### Requirements:
+## Quick Start
 
-#### System Requirements:
-* Python 3.8.1 or higher
-* tkinter GUI support (usually included with Python, but may need to be installed separately on some Linux distributions)
+Generate a basic fractal:
+```bash
+poetry run python main.py
+```
+
+Generate with a specific configuration:
+```bash
+poetry run python main.py data/m-basic.frac fire
+```
+
+## Installation & Setup
+
+<details>
+<summary><strong>System Requirements</strong></summary>
+
+- Python 3.8.1 or higher
+- tkinter GUI support (usually included with Python)
 
 **Installing tkinter on Linux (if needed):**
 ```bash
@@ -15,203 +29,179 @@ sudo apt-get install python3-tk
 
 # Fedora/RHEL/CentOS
 sudo dnf install tkinter
-# or
-sudo yum install tkinter
 
 # Arch Linux
 sudo pacman -S tk
 ```
+</details>
 
-#### Python Dependencies:
-The easiest way to install all required Python modules is using Poetry:
+<details>
+<summary><strong>Python Dependencies</strong></summary>
 
+**Recommended: Using Poetry**
 ```bash
-# Install dependencies
+# Install basic dependencies
 poetry install
 
-# Run the program using Poetry
+# Install with animation support
+poetry install --with animation
+```
+
+**Alternative: Manual Installation**
+```bash
+# Basic requirements
+pip install colour pygame
+
+# Animation requirements (optional)
+pip install opencv-python numpy pillow imageio
+```
+</details>
+
+## Usage
+
+<details>
+<summary><strong>Basic Commands</strong></summary>
+
+**Default fractal (Phoenix):**
+```bash
 poetry run python main.py
 ```
 
-**Alternative manual installation:**
+**Specify configuration file:**
 ```bash
-pip install colour
-pip install pygame
+poetry run python main.py data/m-basic.frac
 ```
 
-To run the program, run main.py with the arguments you want to use.
+**With color palette:**
+```bash
+poetry run python main.py data/m-basic.frac fire
+```
 
-1. **No arguments** - default Phoenix fractal configuration:
-    ```bash
-    # Using Poetry (recommended)
-    poetry run python main.py
-    
-    # Or directly with Python
-    python main.py
-    ```
-
-2. **With fractal configuration file** - Specify a fractal configuration file from the /data folder:
-    ```bash
-    # Using Poetry (recommended)  
-    poetry run python main.py data/p-monkey-knife-fight.frac
-    
-    # Or directly with Python
-    python main.py data/p-monkey-knife-fight.frac
-    ```
-
-3. **With fractal configuration and palette** - Specify both a configuration file and a color palette:
-    ```bash
-    # Using Poetry (recommended)
-    poetry run python main.py data/m-basic.frac fire
-    
-    # Or directly with Python
-    python main.py data/m-basic.frac fire
-    ```
-
-4. **Headless mode (no GUI window)** - Generate fractals without showing the GUI window:
-    ```bash
-    poetry run python main.py data/m-basic.frac --no-gui
-    ```
-
-5. **Animation mode** - Generate animated fractals:
-    ```bash
-    poetry run python main.py data/m-basic.frac fire --animate \
-        --parameter axislength --start 4.0 --end 0.1 --frames 60
-    ```
+**Headless mode (no GUI):**
+```bash
+poetry run python main.py data/m-basic.frac --no-gui
+```
+</details>
 
 <details>
-<summary><strong>Advanced Usage Options</strong></summary>
+<summary><strong>Available Fractal Types</strong></summary>
 
-### Headless Mode Details
+Configuration files are located in the `/data` folder:
 
+- **m-*** - Mandelbrot fractals
+- **j-*** - Julia fractals  
+- **p-*** - Phoenix fractals
+- **bs-*** - Burning Ship fractals
+- **bsj-*** - Burning Ship Julia fractals
+
+**Examples:**
+- `data/m-basic.frac` - Basic Mandelbrot set
+- `data/j-basic.frac` - Basic Julia set
+- `data/p-monkey-knife-fight.frac` - Phoenix fractal
+- `data/bs-basic.frac` - Burning Ship fractal
+</details>
+
+<details>
+<summary><strong>Color Palettes</strong></summary>
+
+Available palettes to use as the second argument:
+
+- **default** - Standard rainbow colors
+- **rainbow** - Full rainbow spectrum
+- **fire** - Flame colors
+- **bluegreen** - Blue and green spectrum
+- **stripes** - Black and white
+- **christmas** - Red and green colors
+
+**Example:**
 ```bash
-# Using Poetry (recommended)
-poetry run python main.py data/m-basic.frac --no-gui
-
-# Or directly with Python
-python main.py data/m-basic.frac --no-gui
-
-# You can also use --headless instead of --no-gui
-poetry run python main.py data/m-basic.frac --headless
+poetry run python main.py data/m-basic.frac christmas
 ```
+</details>
 
-In headless mode, the fractal is generated and saved to the `/output` folder without displaying a GUI window. This is useful for batch processing or running on systems without a display.
+## Animation Features
 
-### Animation Mode Details
+<details>
+<summary><strong>Animation Setup</strong></summary>
 
-Animation mode requires additional dependencies:
+Animation requires additional dependencies:
 ```bash
 poetry install --with animation
 ```
 
-See the Animation Features section below for detailed examples and parameters.
-
+**Note:** FFmpeg is recommended for best video quality but the system will fall back to Python libraries if unavailable.
 </details>
 
-5. **Animation mode** - Generate animated fractals by interpolating parameter values:
-    ```bash
-    # Basic zoom animation
-    poetry run python main.py data/m-basic.frac fire --animate \
-        --parameter axislength --start 4.0 --end 0.1 --frames 60 --output zoom_animation
-    
-    # Smooth panning animation with ease-in-out
-    poetry run python main.py data/j-basic.frac rainbow --animate \
-        --parameter centerx --start -2.0 --end 2.0 --frames 120 \
-        --interpolation ease-in-out --fps 30 --output julia_pan
-    
-    # Complex parameter animation (Julia set constant)
-    poetry run python main.py data/j-basic.frac christmas --animate \
-        --parameter creal --start -1.0 --end 1.0 --frames 90 \
-        --interpolation sine-wave --quality high --output julia_morph
-    ```
-    
-    Animation mode requires the optional animation dependencies:
-    ```bash
-    poetry install --with animation
-    ```
+<details>
+<summary><strong>Animation Parameters</strong></summary>
 
-The configuration files are found in the /data folder. Files starting with m- are Mandelbrot files and files starting with p- are Phoenix files, files starting with bs- are burning ship files, and files starting with j- are julia files.
+Animate these fractal parameters:
 
-## Available Palettes
+- **centerx** / **centery** - Pan across the fractal plane
+- **axislength** - Zoom in or out
+- **creal** / **cimag** - Julia set constants (Julia fractals)
+- **preal** / **pimag** - Phoenix fractal constants (Phoenix fractals)
 
-The following color palettes can be specified as the second argument:
-
-* **default** - Standard rainbow colors
-* **rainbow** - rainbow spectrum
-* **fire** - flames 🔥🔥🔥🔥🔥
-* **bluegreen** - blue and green spectrum
-* **stripes** - Black and white
-* **christmas** - Christmas colors
+**Basic syntax:**
+```bash
+poetry run python main.py [config] [palette] --animate \
+    --parameter [param] --start [value] --end [value] --frames [count]
+```
+</details>
 
 <details>
-<summary><strong>Animation Features</strong></summary>
+<summary><strong>Interpolation Methods</strong></summary>
 
-## Animation Parameters
+Control how parameter values change over time:
 
-When using `--animate`, you can animate the following parameters:
+- **linear** - Constant rate of change (default)
+- **ease-in-out** - Smooth acceleration and deceleration
+- **sine-wave** - Oscillating motion
+- **back-and-forth** - Go from start to end and back
 
-* **centerx** / **centery** - Pan across the fractal plane
-* **axislength** - Zoom in or out of the fractal
-* **creal** / **cimag** - Change Julia set constants (for Julia fractals)
-* **preal** / **pimag** - Change Phoenix fractal constants (for Phoenix fractals)
-
-## Interpolation Methods
-
-Choose how values change between start and end:
-
-* **linear** - Constant rate of change (default)
-* **ease-in-out** - Smooth acceleration and deceleration
-* **sine-wave** - Oscillating motion following a sine wave
-* **back-and-forth** - Go from start to end and back to start
-
-## Animation Examples
-
+**Example:**
 ```bash
-# Zoom animation with linear interpolation
 poetry run python main.py data/m-basic.frac fire --animate \
     --parameter axislength --start 4.0 --end 0.1 --frames 60 \
-    --output mandelbrot_zoom
-
-# Smooth panning with ease-in-out
-poetry run python main.py data/j-basic.frac rainbow --animate \
-    --parameter centerx --start -2.0 --end 2.0 \
-    --interpolation ease-in-out --fps 30 --output julia_pan
-
-# Julia constant animation with back-and-forth motion  
-poetry run python main.py data/j-basic.frac christmas --animate \
-    --parameter creal --start -1.5 --end 0.5 \
-    --interpolation back-and-forth --frames 120 --output julia_morph
-
-# High quality sine wave zoom
-poetry run python main.py data/m-basic.frac fire --animate \
-    --parameter axislength --start 2.0 --end 0.01 \
-    --interpolation sine-wave --quality lossless --fps 60
+    --interpolation ease-in-out
 ```
-
-## Animation Requirements
-
-To use animation features, install the animation dependencies:
-
-```bash
-# Install animation dependencies
-poetry install --with animation
-
-# Or manually install required packages
-pip install opencv-python numpy pillow imageio
-```
-
-**Note:** FFmpeg is recommended for best video quality but the system will fall back to Python libraries if not available.
-
 </details>
 
-## Program Execution
+<details>
+<summary><strong>Animation Examples</strong></summary>
 
-When the program runs successfully:
-1. A window opens showing the fractal generation
-2. progress percentage and the name of the fractal are shown in the console
-3. the fractal finishes and when the window is closed the file is saved
+**Basic zoom animation:**
+```bash
+poetry run python main.py data/m-basic.frac fire --animate \
+    --parameter axislength --start 4.0 --end 0.1 --frames 60
+```
 
-### Example Output:
+**Smooth panning animation:**
+```bash
+poetry run python main.py data/j-basic.frac rainbow --animate \
+    --parameter centerx --start -2.0 --end 2.0 --frames 120 \
+    --interpolation ease-in-out --fps 30
+```
+
+**Julia constant morphing:**
+```bash
+poetry run python main.py data/j-basic.frac christmas --animate \
+    --parameter creal --start -1.0 --end 1.0 --frames 90 \
+    --interpolation sine-wave --quality high
+```
+
+**High quality oscillating zoom:**
+```bash
+poetry run python main.py data/m-basic.frac fire --animate \
+    --parameter axislength --start 2.0 --end 0.01 \
+    --interpolation back-and-forth --quality lossless --fps 60
+```
+</details>
+
+## Output & Execution
+
+<details>
+<summary><strong>Program Output Examples</strong></summary>
 
 **GUI Mode:**
 ```
@@ -239,24 +229,49 @@ Video successfully created: ./output/zoom.mp4
 Cleanup complete: 60 files removed
 Animation complete: ./output/zoom.mp4
 ```
+</details>
 
 <details>
-<summary><strong>Troubleshooting & Common Errors</strong></summary>
+<summary><strong>Performance Tips</strong></summary>
+
+- Use `--no-gui` for faster generation when preview isn't needed
+- Use lower frame counts for testing animations
+- Use 'low' quality setting for preview animations  
+- Higher iteration counts create more detail but take longer to render
+- Test with small parameter ranges before creating long animations
+</details>
+
+## Troubleshooting
+
+<details>
+<summary><strong>Common Errors & Solutions</strong></summary>
 
 | Error | Message | Solution |
 |-------|---------|----------|
-| **File Not Found** | `FileNotFoundError: [Errno 2] No such file or directory` | Verify that your file paths are correct |
-| **Incorrect Fractal Type** | `Warning! incompatible fractal type detected: 'mandelbrot'` | Make sure you're using the correct program for the fractal type |
-| **Invalid Palette** | `ValueError: Unknown palette name: [name]` | Use one of the valid palette names listed above |
+| **File Not Found** | `FileNotFoundError: [Errno 2] No such file or directory` | Verify file paths are correct |
+| **Incorrect Fractal Type** | `Warning! incompatible fractal type detected` | Use correct fractal configuration file |
+| **Invalid Palette** | `ValueError: Unknown palette name` | Use valid palette names listed above |
 | **Animation Dependencies** | `ImportError: Animation dependencies not installed` | Run `poetry install --with animation` |
-| **Video Creation Failed** | `All video creation methods failed` | Install ffmpeg, or ensure opencv-python/imageio are available |
-| **Invalid Parameter** | `ValueError: Invalid parameter 'xyz'` | Use valid parameters: centerx, centery, axislength, creal, cimag, preal, pimag |
+| **Video Creation Failed** | `All video creation methods failed` | Install ffmpeg or ensure Python video libraries are available |
+| **Invalid Parameter** | `ValueError: Invalid parameter` | Use valid parameters: centerx, centery, axislength, creal, cimag, preal, pimag |
+| **Missing Configuration** | `File not found in data directory` | Ensure fractal configuration file exists in `/data` folder |
+</details>
 
-### Performance Tips
+<details>
+<summary><strong>Getting Help</strong></summary>
 
-- Use `--no-gui` for faster generation when you don't need to see the preview
-- Lower frame counts for testing animations before final render
-- Use 'low' quality setting for preview animations
-- Higher iteration counts create more detailed fractals but take longer to render
+**View available options:**
+```bash
+poetry run python main.py --help
+```
 
+**List available fractal configurations:**
+```bash
+ls data/*.frac
+```
+
+**Test basic functionality:**
+```bash
+poetry run python main.py data/m-basic.frac --no-gui
+```
 </details>
