@@ -92,8 +92,20 @@ def main():
         }
         animator.set_interpolator(interpolator_map[args.interpolation])
         
+        # Ensure minimum 5-second duration
+        duration = args.frames / args.fps
+        min_duration = 5.0
+        
+        if duration < min_duration:
+            # Calculate new fps to achieve minimum duration
+            adjusted_fps = args.frames / min_duration
+            print(f"Animation too short ({duration:.1f}s). Adjusting FPS from {args.fps} to {adjusted_fps:.1f} for {min_duration}s duration.", file=sys.stderr)
+            final_fps = adjusted_fps
+        else:
+            final_fps = args.fps
+        
         # Set video settings
-        animator.set_video_settings(fps=args.fps, quality=args.quality)
+        animator.set_video_settings(fps=final_fps, quality=args.quality)
         
         # Generate animation
         result = animator.generate_animation()

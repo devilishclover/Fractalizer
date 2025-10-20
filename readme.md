@@ -6,10 +6,19 @@ A Python-based fractal generator supporting Mandelbrot, Julia, Phoenix, and Burn
 
 <div align="center">
 
+### Static Fractals
+
 | Mandelbrot Set | Julia Set | Phoenix Fractal |
 |:---:|:---:|:---:|
 | <img src="exampleoutput/m-wholly-squid.png" width="200" height="200" alt="Mandelbrot"> | <img src="exampleoutput/j-basic.png" width="200" height="200" alt="Julia"> | <img src="exampleoutput/p-oriental-dragons.png" width="200" height="200" alt="Phoenix"> |
 | `m-wholly-squid.frac` with `stripes` palette | `j-basic.frac` with `fire` palette | `p-oriental-dragons.frac` with `bluegreen` palette |
+
+### Animation Example
+
+| Fractal Animation |
+|:---:|
+| <video width="400" height="400" controls><source src="exampleoutput/sickanimation.mp4" type="video/mp4">Your browser does not support the video tag.</video> |
+| Dynamic fractal animation showing parameter interpolation |
 
 </div>
 
@@ -141,6 +150,8 @@ poetry install --with animation
 ```
 
 **Note:** FFmpeg is recommended for best video quality but the system will fall back to Python libraries if unavailable.
+
+**Automatic Duration Adjustment:** All animations are automatically ensured to be at least 5 seconds long. If your frame count and FPS would result in a shorter animation, the FPS will be automatically reduced to achieve the minimum duration.
 </details>
 
 <details>
@@ -250,6 +261,7 @@ Animation complete: ./output/zoom.mp4
 - Use 'low' quality setting for preview animations  
 - Higher iteration counts create more detail but take longer to render
 - Test with small parameter ranges before creating long animations
+- All animations are automatically at least 5 seconds long for better visibility
 </details>
 
 ## Troubleshooting
