@@ -54,7 +54,7 @@ def makeImage(config, fractal, palette):
               + f"{'=' * int(34 * completionPercentage):<33}]",
               end="\r", file=sys.stderr)
 
-    tkPhotoImage.write(name + ".png")
+    tkPhotoImage.write(f"./output/{name}.png")
         
     print(f"\nDone in {time() - b4:.3f} seconds!", file=sys.stderr)
     print("Close the image window to exit the program", file=sys.stderr)

@@ -16,6 +16,8 @@ class FractalFactory:
             self.fractal = fractals.Phoenix(max_iterations, config)
         elif name == "burningship":
             self.fractal = fractals.BurningShip(max_iterations)
+        elif name == "burningshipjulia":
+            self.fractal = fractals.BurningShipJulia(max_iterations, config)
         elif name == "julia":
             self.fractal = fractals.Julia(max_iterations, config)
         else:

@@ -89,6 +89,20 @@ class BurningShip(Fractal):
                 return iteration
         return self.max_iterations
     
+class BurningShipJulia(Fractal):
+    def __init__(self, max_iterations, config):
+        super().__init__(self)
+        self.max_iterations = max_iterations
+        self.config = config
+    
+    def count(self, z):
+        c = complex(self.config['creal'], self.config['cimag'])
+        for iteration in range(self.max_iterations):
+            z = complex(abs(z.real), -abs(z.imag)) ** 2 + c
+            if abs(z) > 2:
+                return iteration
+        return self.max_iterations
+    
 class Julia(Fractal):
     def __init__(self, max_iterations, config):
         super().__init__(self)
