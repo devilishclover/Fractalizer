@@ -17,7 +17,7 @@ A Python-based fractal generator supporting multiple fractal sets with animation
 
 | Fractal Animation |
 |:---:|
-| <video width="400" height="400" controls><source src="exampleoutput/sickanimation.mp4" type="video/mp4">Your browser does not support the video tag.</video> |
+| <img src="exampleoutput/sickanimation.gif" width="400" height="400" alt="Fractal Animation"> |
 | Dynamic fractal animation showing parameter interpolation |
 
 </div>
